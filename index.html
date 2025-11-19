@@ -8,7 +8,7 @@
   <style>
     :root {
       --primary: #4b7c75;
-      --glass-bg: rgba(255, 255, 255, 0.4);
+      --glass-bg: rgba(255, 255, 255, 0.45);
       --glass-border: rgba(255, 255, 255, 0.6);
     }
 
@@ -21,53 +21,68 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      text-align: center;
       color: #2b2b2b;
+      text-align: center;
     }
 
     .card {
       width: 90%;
-      max-width: 420px;
-      padding: 40px 28px;
+      max-width: 480px;
+      padding: 40px;
       border-radius: 28px;
       background: var(--glass-bg);
-      backdrop-filter: blur(20px);
       border: 1px solid var(--glass-border);
+      backdrop-filter: blur(20px);
       box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
     }
 
-    .logo {
-      width: 160px;
-      margin-bottom: 20px;
+    img.logo {
+      width: 170px;
+      margin-bottom: 22px;
     }
 
     h1 {
+      margin: 0;
       font-size: 32px;
-      margin: 0 0 10px;
-      color: var(--primary);
       font-weight: 700;
+      color: var(--primary);
     }
 
     p {
-      font-size: 17px;
-      margin-top: 0;
+      margin: 10px 0 32px;
       opacity: 0.75;
-      margin-bottom: 32px;
+      font-size: 17px;
+    }
+
+    /* BUTTON GRID */
+    .button-row {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    @media (min-width: 760px) {
+      .button-row {
+        flex-direction: row;
+        justify-content: center;
+      }
     }
 
     .btn {
-      display: block;
-      width: 100%;
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
       padding: 15px 20px;
-      margin-bottom: 18px;
       border-radius: 14px;
       text-decoration: none;
       font-size: 18px;
       font-weight: 600;
-      border: 1px solid var(--glass-border);
       background: rgba(255, 255, 255, 0.65);
       backdrop-filter: blur(10px);
       color: #2b2b2b;
+      border: 1px solid var(--glass-border);
       transition: transform 0.15s, box-shadow 0.15s;
     }
 
@@ -82,6 +97,24 @@
       border: none;
     }
 
+    .btn img {
+      height: 24px;
+      width: 24px;
+      object-fit: contain;
+    }
+
+    .btn.google {
+      background: #4285F4;
+      color: white;
+      border: none;
+    }
+
+    .btn.windows {
+      background: #0078D6;
+      color: white;
+      border: none;
+    }
+
     footer {
       margin-top: 26px;
       font-size: 14px;
@@ -91,45 +124,20 @@
 </head>
 
 <body>
-
   <div class="card">
-    <!-- USE YOUR LOGO -->
+
+    <!-- GrocLi Logo -->
     <img src="GrocLiLogo.png" class="logo" alt="GrocLi logo" />
 
     <h1>GrocLi</h1>
     <p>Your smart, simple shopping list that works everywhere.</p>
 
-    <!-- iOS / PWA Link — CHANGE THIS -->
-    <a id="pwaBtn" href="https://your-webapp-url.com" class="btn">
-      Open Web App (iPhone & Desktop)
-    </a>
+    <!-- PLATFORM BUTTONS -->
+    <div class="button-row">
 
-    <!-- Google Play Link — CHANGE THIS -->
-    <a id="playBtn" href="https://play.google.com/store/apps/details?id=YOUR_ID" class="btn">
-      Get it on Google Play
-    </a>
-
-    <footer>© 2025 GrocLi</footer>
-  </div>
-
-  <script>
-    // Device detection to highlight the correct button
-    const ua = navigator.userAgent.toLowerCase()
-    const isAndroid = ua.includes("android")
-    const isIOS = /iphone|ipad|ipod/.test(ua)
-
-    const pwaBtn = document.getElementById("pwaBtn")
-    const playBtn = document.getElementById("playBtn")
-
-    if (isIOS) {
-      pwaBtn.classList.add("primary")
-    }
-
-    if (isAndroid) {
-      playBtn.classList.add("primary")
-    }
-  </script>
-
-</body>
-</html>
+      <!-- iOS / Web App -->
+      <a id="pwaBtn"
+         href="https://your-webapp-url.com"   <!-- CHANGE THIS -->
+         class="btn">
+        <img
 
