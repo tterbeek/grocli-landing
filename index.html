@@ -139,5 +139,48 @@
       <a id="pwaBtn"
          href="https://your-webapp-url.com"   <!-- CHANGE THIS -->
          class="btn">
-        <img
+        <img src="https://img.icons8.com/ios-filled/50/ffffff/mac-os.png" alt="">
+        iPhone / Web App
+      </a>
+
+      <!-- Google Play -->
+      <a id="playBtn"
+         href="https://play.google.com/store/apps/details?id=YOUR_ID"   <!-- CHANGE THIS -->
+         class="btn google">
+        <img src="https://img.icons8.com/color/48/google-play.png" alt="">
+        Google Play
+      </a>
+
+      <!-- Windows Store -->
+      <a id="winBtn"
+         href="https://apps.microsoft.com/detail/9ppt37nv1wcl?ocid=webpdpshare"
+         class="btn windows">
+        <img src="https://img.icons8.com/fluency/48/windows-11.png" alt="">
+        Windows
+      </a>
+
+    </div>
+
+    <footer>© 2025 GrocLi</footer>
+  </div>
+
+  <script>
+    // Auto-highlight correct button based on device
+    const ua = navigator.userAgent.toLowerCase()
+
+    const isAndroid = ua.includes("android")
+    const isIOS = /iphone|ipad|ipod/.test(ua)
+    const isWindows = ua.includes("windows")
+
+    const pwaBtn = document.getElementById("pwaBtn")
+    const playBtn = document.getElementById("playBtn")
+    const winBtn = document.getElementById("winBtn")
+
+    if (isIOS) pwaBtn.classList.add("primary")
+    if (isAndroid) playBtn.classList.add("primary")
+    if (isWindows) winBtn.classList.add("primary")
+  </script>
+
+</body>
+</html>
 
