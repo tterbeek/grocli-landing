@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>GrocLi – Simple Smart Shopping</title>
+
+  <style>
+    :root {
+      --primary: #4b7c75;
+      --glass-bg: rgba(255, 255, 255, 0.4);
+      --glass-border: rgba(255, 255, 255, 0.6);
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: linear-gradient(140deg, #e7f0ee, #cfe0dd);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: #2b2b2b;
+    }
+
+    .card {
+      width: 90%;
+      max-width: 420px;
+      padding: 40px 28px;
+      border-radius: 28px;
+      background: var(--glass-bg);
+      backdrop-filter: blur(20px);
+      border: 1px solid var(--glass-border);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
+    }
+
+    .logo {
+      width: 160px;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-size: 32px;
+      margin: 0 0 10px;
+      color: var(--primary);
+      font-weight: 700;
+    }
+
+    p {
+      font-size: 17px;
+      margin-top: 0;
+      opacity: 0.75;
+      margin-bottom: 32px;
+    }
+
+    .btn {
+      display: block;
+      width: 100%;
+      padding: 15px 20px;
+      margin-bottom: 18px;
+      border-radius: 14px;
+      text-decoration: none;
+      font-size: 18px;
+      font-weight: 600;
+      border: 1px solid var(--glass-border);
+      background: rgba(255, 255, 255, 0.65);
+      backdrop-filter: blur(10px);
+      color: #2b2b2b;
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+    }
+
+    .btn.primary {
+      background: var(--primary);
+      color: white;
+      border: none;
+    }
+
+    footer {
+      margin-top: 26px;
+      font-size: 14px;
+      opacity: 0.6;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="card">
+    <!-- USE YOUR LOGO -->
+    <img src="GrocLiLogo.png" class="logo" alt="GrocLi logo" />
+
+    <h1>GrocLi</h1>
+    <p>Your smart, simple shopping list that works everywhere.</p>
+
+    <!-- iOS / PWA Link — CHANGE THIS -->
+    <a id="pwaBtn" href="https://your-webapp-url.com" class="btn">
+      Open Web App (iPhone & Desktop)
+    </a>
+
+    <!-- Google Play Link — CHANGE THIS -->
+    <a id="playBtn" href="https://play.google.com/store/apps/details?id=YOUR_ID" class="btn">
+      Get it on Google Play
+    </a>
+
+    <footer>© 2025 GrocLi</footer>
+  </div>
+
+  <script>
+    // Device detection to highlight the correct button
+    const ua = navigator.userAgent.toLowerCase()
+    const isAndroid = ua.includes("android")
+    const isIOS = /iphone|ipad|ipod/.test(ua)
+
+    const pwaBtn = document.getElementById("pwaBtn")
+    const playBtn = document.getElementById("playBtn")
+
+    if (isIOS) {
+      pwaBtn.classList.add("primary")
+    }
+
+    if (isAndroid) {
+      playBtn.classList.add("primary")
+    }
+  </script>
+
+</body>
+</html>
+
